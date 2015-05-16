@@ -8,14 +8,14 @@ Sociology 161. All rights reserved.
 from random import randint
 
 # Global Variables
-BASE_FRIENDS = 5 #15 # dec. by 90%
-MAX_FRIENDS = 50 #0 # dec. by 90%
+BASE_FRIENDS = 50 #15 # dec. by 90%
+MAX_FRIENDS = 500 #0 # dec. by 90%
 
-CELEB = 5
-FREQ = 50
-RARE = 50
-EAGER = 25
-NORM = 70
+CELEB = 50
+FREQ = 500
+RARE = 500
+EAGER = 250
+NORM = 700
 
 ###############################################################################
 
@@ -44,10 +44,6 @@ class User(object):
            ".format(self._id, self.friends, self.influence, self.responsive)
 
 
-class FacebookUser(User):
-  def __init__(self):
-    
-
 def spec(idx, spec_type):
   """\
   Generic specification handler for different user types providing
@@ -60,23 +56,23 @@ def spec(idx, spec_type):
   """
   if spec_type == 'celeb':
     f = randint(30, MAX_FRIENDS)
-    i = randint(60, 75) # highly influential
-    r = randint(0, 10) # low response to ads
+    i = randint(40, 50) # highly influential
+    r = randint(0, 20) # low response to ads
   elif spec_type == 'freq':
-    f = randint(BASE_FRIENDS, 20)
-    i = randint(20, 50) # medium influence
+    f = randint(BASE_FRIENDS, 200)
+    i = randint(20, 30) # medium influence
     r = randint(35, 60) # medium-high response to ads
   elif spec_type == 'rare':
-    f = randint(BASE_FRIENDS, 8)
-    i = randint(1, 20) # low influence
+    f = randint(BASE_FRIENDS, 80)
+    i = randint(10, 20) # low influence
     r = randint(5, 25) # low response to ads
   elif spec_type == 'eager':
-    f = randint(BASE_FRIENDS, 25)
-    i = randint(20, 50) # medium influence
+    f = randint(BASE_FRIENDS, 250)
+    i = randint(20, 30) # medium influence
     r = randint(50, 80) # very high response to ads
   elif spec_type == 'norm':
-    f = randint(BASE_FRIENDS, 15)
-    i = randint(10, 30) # medium-low influence
+    f = randint(BASE_FRIENDS, 150)
+    i = randint(15, 25) # medium-low influence
     r = randint(10, 30) # medium response to ads
   else:
     raise ValueError("Unspecified Type {}".format(spec_type))
